@@ -5,11 +5,32 @@ import os
 from tkinter import *
 import tkinter
 import tkinter.messagebox
-# Variables
-tw_region_za = "South Africa"
-tw_region_za_ip = "151.101.226.167"
+# Variables for Twitch Hosted Ingest Servers.
+# Non-HLS RTMP relays
+
+
+
+# Variables for non-Twitch Hosted RTMP relays 
+# (i.e Hyperlayer or CISP Relays in ZA to LHR(Heathrow,London,U.K DC) Twitch ingest server, acts as a "proxy").
+# Naming convention follows a simple method: 
+# TRL = [T]witch_[R]e[L]ay
+# _Provider_RegionCode 
+# i.e: TRL_att_USA = "ATT Twitch Relay USA"
+# TRL_att_USA_ip = "123.456.789.255"
+TRL_hyperlayer_ZA = "South Africa"
+TRL_hyperlayer_ZA_ip = 
+
+TRL_cisp_ZA = "151.101.226.167"
+
 tw_region_usa = "United States of America"
 tw_region_usa_ip = "127.0.0.1"
+
+
+
+
+
+
+
 # Main class for the Window.
 class Window(Frame):
     def __init__(self, parent=None):
@@ -31,16 +52,16 @@ class Window(Frame):
         quitButton.place(x=514, y=0)
 # Main functions for servers go below this line.
     def twitch_server_za(self):
-        print("Pinging Twitch Server located in " + tw_region_za)
-        response = os.system("ping " + tw_region_za_ip)
+        print("Pinging Twitch Relay located in " + TRL_tw_region_za)
+        response = os.system("ping " + TRL_tw_region_za_ip)
         if response == 0:
             result = "Server Reachable"
         else:
             result = "Server Unreachable"
 
     def twitch_server_usa(self):
-        print("Pinging Twitch Server located in " + tw_region_usa)
-        response = os.system("ping " + tw_region_usa_ip)
+        print("Pinging Twitch Relay located in " + TRL_tw_region_za)
+        response = os.system("ping " + TRL_tw_region_za_ip)
         if response == 0:
             result = "Server Reachable"
         else:
