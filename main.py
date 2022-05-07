@@ -13,14 +13,14 @@ import tkinter.messagebox
 # Variables for non-Twitch Hosted RTMP relays 
 # (i.e Hyperlayer or CISP Relays in ZA to LHR(Heathrow,London,U.K DC) Twitch ingest server, acts as a "proxy").
 # Naming convention follows a simple method: 
-# TRL = [T]witch_[R]e[L]ay
-# _Provider_RegionCode 
-# i.e: TRL_att_USA = "ATT Twitch Relay USA"
-# TRL_att_USA_ip = "123.456.789.255"
-TRL_hyperlayer_ZA = "South Africa"
-TRL_hyperlayer_ZA_ip = 
+# trl = [t]witch_[r]e[l]ay
+# _provider_regioncode 
+# i.e: trl_att_USA = "ATT Twitch Relay USA"
+# trl_att_usa_ip = "123.456.789.255"
+trl_hyperlayer_za = "South Africa"
+trl_hyperlayer_za_ip = "127.0.0.1" 
 
-TRL_cisp_ZA = "151.101.226.167"
+trl_cisp_za = "151.101.226.167"
 
 tw_region_usa = "United States of America"
 tw_region_usa_ip = "127.0.0.1"
@@ -59,9 +59,9 @@ class Window(Frame):
         else:
             result = "Server Unreachable"
 
-    def twitch_server_usa(self):
-        print("Pinging Twitch Relay located in " + TRL_tw_region_za)
-        response = os.system("ping " + TRL_tw_region_za_ip)
+    def trl_hyperlayer_za(self):
+        print("Pinging Twitch Relay located in " + trl_hyperlayer_za)
+        response = os.system("ping " + trl_hyperlayer_za_ip)
         if response == 0:
             result = "Server Reachable"
         else:
