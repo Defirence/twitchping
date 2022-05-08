@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Clone the branch
-        run: git clone git@github.com:Defirence/twitchping.git
+        run: git clone https://github.com/Defirence/twitchping.git
       - name: Run pylint checks.
         run: |
           echo "Running pylint against latest push..."
