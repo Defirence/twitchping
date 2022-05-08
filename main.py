@@ -2,11 +2,7 @@
 
 import sys
 import os
-import tkinter
-from tkinter import BOTH, Tk as Tk
-import tkinter.messagebox
-from tkinter import Frame
-from tkinter import Button
+from tkinter import BOTH, Tk, Frame, Button, messagebox
 
 TRL_HYPERLAYER_ZA = "Relay: Hyperlayer JHB,ZA -> LHR,UK"
 TRL_HYPERLAYER_ZA_IP = "156.38.201.100"
@@ -36,7 +32,7 @@ class Window(Frame):
         elif response != 0:
             result = "Ping Failure"
         if result == "Ping Success":
-            tkinter.messagebox.showinfo(title=result,
+            messagebox.showinfo(title=result,
             message=TRL_HYPERLAYER_ZA + " is online.\n"
             + "Latency Results are:\n" + str("min=XYms\nmax=XYms\navg=XYms"))
         return self.parent
