@@ -2,7 +2,9 @@
 
 import sys
 import os
-from tkinter import BOTH, Tk, Frame, Button, messagebox
+import tkinter as Tk
+from tkinter import Tk, BOTH, Frame, Button, messagebox
+from tkinter import *
 
 TRL_HYPERLAYER_ZA = "Relay: Hyperlayer JHB,ZA -> LHR,UK"
 TRL_HYPERLAYER_ZA_IP = "156.38.201.100"
