@@ -4,6 +4,7 @@ ansible-lint==6.0.2
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 asttokens==2.0.5
+astroid==2.9.3
 attrs==21.4.0
 backcall==0.2.0
 beautifulsoup4==4.11.1
@@ -56,6 +57,7 @@ ptyprocess==0.7.0
 pure-eval==0.2.2
 pycparser==2.21
 Pygments==2.12.0
+pylint==2.12.2
 pyparsing==3.0.8
 PyQt5==5.15.6
 PyQt5-Qt5==5.15.2
