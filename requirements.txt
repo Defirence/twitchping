@@ -5,7 +5,7 @@ argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 asttokens==2.0.5
 astroid==2.9.3
-attrs==17.2.0
+attrs==17.4.0
 backcall==0.2.0
 beautifulsoup4==4.11.1
 bleach==5.0.0
