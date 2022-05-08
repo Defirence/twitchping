@@ -13,11 +13,11 @@ jobs:
         env:
           TOKEN: ${{ secrets.TWITCHPING_TOKEN }}
         run: git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
-      - name: Install pylint
-        run: pip install -r ./requirements.txt
       - uses: actions/checkout@v3
       - name: Clone the branch
         run: git clone https://github.com/Defirence/twitchping.git
+      - name: Install pylint
+        run: pip install -r ./requirements.txt  
       - name: Run pylint checks
         run: |
           echo "Running pylint against latest commit..."
