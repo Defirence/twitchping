@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+    - 'dev'
+
+jobs:
+  pylint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure git
+        env:
+          TOKEN: ${{ secrets.TWITCHPING_TOKEN }}
+        run: git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+      - uses: actions/checkout@v3
+      - name: Clone the branch
+        run: git clone https://github.com/Defirence/twitchping.git
+      - name: Run pylint checks
+        run: |
+          echo "Running pylint against latest commit..."
+          pip install -r requirements.txt ; pylint --exit-zero ./main.py
