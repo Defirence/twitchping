@@ -15,5 +15,6 @@ jobs:
       - name: Clone the branch
         run: git clone https://github.com/Defirence/twitchping.git
       - name: Run pylint checks
-        with:
-          args: "pip install - requirements.txt ; pylint **/*.py"
+        run: |
+          echo "Running pylint against latest commit..."
+          pip install -r requirements.txt ; pylint --exit-zero ./main.py
