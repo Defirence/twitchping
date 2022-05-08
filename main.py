@@ -1,83 +1,50 @@
 '''Twitch Ping v0.1-dev by Defirence'''
-# Packages and Modules
+
 import sys
 import os
-from tkinter import *
 import tkinter
+from tkinter import BOTH, Tk as Tk
 import tkinter.messagebox
-# Variables for Twitch Hosted Ingest Servers.
-# Non-HLS RTMP relays
+from tkinter import Frame
+from tkinter import Button
 
+TRL_HYPERLAYER_ZA = "Relay: Hyperlayer JHB,ZA -> LHR,UK"
+TRL_HYPERLAYER_ZA_IP = "156.38.201.100"
 
-
-# Variables for non-Twitch Hosted RTMP relays 
-# (i.e Hyperlayer or CISP Relays in ZA to LHR(Heathrow,London,U.K DC) Twitch ingest server, acts as a "proxy").
-# Naming convention follows a simple method: 
-# trl = [t]witch_[r]e[l]ay
-# _provider_regioncode 
-# i.e: trl_att_USA = "ATT Twitch Relay USA"
-# trl_att_usa_ip = "123.456.789.255"
-trl_hyperlayer_za = "South Africa"
-trl_hyperlayer_za_ip = "127.0.0.1" 
-
-trl_cisp_za = "151.101.226.167"
-
-tw_region_usa = "United States of America"
-tw_region_usa_ip = "127.0.0.1"
-
-
-
-
-
-
-
-# Main class for the Window.
 class Window(Frame):
+    """Main class that handles the Window Frame"""
     def __init__(self, parent=None):
         Frame.__init__(self, parent)
         self.parent = parent
         self.init_window()
 
     def init_window(self):
+        """Function to handle the buttons and window init"""
         self.master.title('Twitch Ping v0.1')
         self.pack(fill=BOTH, expand=1)
-# Button functions for Tkinter go below this line.
-        pingButton = Button(self, text="Ping!", command=self.twitch_server_za)
-        pingButton.place(x=0, y=0)
-
-        pingButtonUS = Button(self, text="US", command=self.twitch_server_usa)
-        pingButtonUS.place(x=40, y=0)
-        
-        quitButton = Button(self, text='Quit', command=self.client_exit)
-        quitButton.place(x=514, y=0)
-# Main functions for servers go below this line.
-    def twitch_server_za(self):
-        print("Pinging Twitch Relay located in " + TRL_tw_region_za)
-        response = os.system("ping " + TRL_tw_region_za_ip)
-        if response == 0:
-            result = "Server Reachable"
-        else:
-            result = "Server Unreachable"
+        ping_button = Button(self, text="Hyperlayer", command=self.trl_hyperlayer_za)
+        ping_button.place(x=0, y=0)
+        quit_button = Button(self, text='Quit', command=self.client_exit)
+        quit_button.place(x=514, y=0)
 
     def trl_hyperlayer_za(self):
-        print("Pinging Twitch Relay located in " + trl_hyperlayer_za)
-        response = os.system("ping " + trl_hyperlayer_za_ip)
+        """Function to handle the latency testing"""
+        print("Pinging " + TRL_HYPERLAYER_ZA)
+        response = os.system("ping " + TRL_HYPERLAYER_ZA_IP)
         if response == 0:
-            result = "Server Reachable"
-        else:
-            result = "Server Unreachable"            
-# Empty space here for further functions
-# and just for sanity while writing this
-# to ensure this stays neat.
-#
-# Other functions go down here that rely
-# on the functions above to return a
-# response first.
-        if result == "Server Reachable": tkinter.messagebox.showinfo(title=result, message="Ping Success")
-        elif result == "Server Unreachable": tkinter.messagebox.showinfo(title=result, message="Ping Failure")
-    
+            result = "Ping Success"
+        elif response != 0:
+            result = "Ping Failure"
+        if result == "Ping Success":
+            tkinter.messagebox.showinfo(title=result,
+            message=TRL_HYPERLAYER_ZA + " is online.\n"
+            + "Latency Results are:\n" + str("min=XYms\nmax=XYms\navg=XYms"))
+        return self.parent
+
     def client_exit(self):
+        """Does what it says on the box"""
         sys.exit(0)
+
 root = Tk()
 root.geometry("550x245")
 app = Window(root)
