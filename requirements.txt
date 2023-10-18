@@ -79,7 +79,7 @@ testresources==2.0.1
 tinycss2==1.1.1
 tornado==6.3.3
 traitlets==5.1.1
-urllib3==1.26.9
+urllib3==1.26.18
 wcmatch==8.3
 wcwidth==0.2.5
 webencodings==0.5.1
