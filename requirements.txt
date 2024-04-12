@@ -15,7 +15,7 @@ cryptography==41.0.6
 debugpy==1.6.0
 decorator==5.1.1
 defusedxml==0.7.1
-dnspython==2.2.1
+dnspython==2.6.1
 docopt==0.6.2
 enrich==1.2.7
 entrypoints==0.4
